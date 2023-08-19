@@ -1,0 +1,30 @@
+﻿@using ComScience.Web.Models;
+@model BannerData
+
+<div class="container">
+    <div class="row">
+        <div class="card banner position-relative">
+            <img src="/img/banner.png" class="card-img" alt="Фонд содействия инновациям">
+            <div class="card-img-overlay d-flex align-items-end">
+                <h5 class="card-title">@Model.Title</h5>
+            </div>
+            <div class="position-absolute top-0 end-0">
+                <img src="/img/btn-open-modal.png" class="open custom-open-modal" data-id="0" alt="Октрыть новость">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalNews" class="modal fade">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">@Model.Title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @Html.Raw(Model.ContentHTML)
+            </div>
+        </div>
+    </div>
+</div>

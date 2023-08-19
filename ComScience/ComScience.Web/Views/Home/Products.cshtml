@@ -1,0 +1,6 @@
+﻿@using ComScience.Web.Data
+@model StorageData
+
+<main class="products">
+    @await Component.InvokeAsync("Products", new { products = Model.Products })
+</main>

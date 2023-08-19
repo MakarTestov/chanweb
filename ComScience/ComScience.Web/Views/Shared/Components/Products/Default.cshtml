@@ -1,0 +1,48 @@
+﻿@using ComScience.Web.Models;
+@model IEnumerable<Product>
+
+<div class="container">
+    <div class="row">
+        <h4>Продукты</h4>
+        <img src="~/img/product-background.png" alt="CHAN тысяча исследований одна программа" class="img-fluid" />
+        <h4 class="mt-4">Модули</h4>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4 reset-padding">
+        @foreach(var product in Model)
+        {
+            @foreach (var module in product.Modules)
+            {
+                <div class="col">
+                    <div class="card position-relative">
+                        <img src="/img/module-background.png" class="card-img-top" alt="Фон модуля">
+                        <div class="card-body card-img-overlay">
+                            <div class="card-img-overlay d-flex align-items-end">
+                                <h5 class="card-title">@module.Title</h5>
+                            </div>
+                            <div class="position-absolute top-0 end-0 p-2">
+                                <img src="/img/btn-open-modal.png" class="open product-open-modal" width="33" height="33" data-module-id="@module.Id" alt="Октрыть новость">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<div id="modalModule" class="modal fade">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var products = @Html.Raw(Json.Serialize(Model));
+</script>

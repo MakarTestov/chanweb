@@ -1,0 +1,54 @@
+﻿<div class="container-md contact-us">
+    <div class="row">
+
+        <div class="card margin-bottom">
+            <div class="card-header">Контакты</div>
+            <div class="card-body">
+                <h5 class="card-title">Тестов Макар Сергеевич</h5>
+                <p class="card-text">8 (800) 555 35 35</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Связаться с нами</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col m-2">
+                        <label for="firstName" class="form-label">Полное имя</label>
+                        <input type="text" name="firstName" class="form-control" id="firstName" placeholder="Иван">
+                    </div>
+                    <div class="col m-2">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+                    </div>
+                </div>
+                <div class="m-2">
+                    <label for="message" class="form-label">Сообщение</label>
+                    <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+                </div>
+                <button type="button" class="btn btn-secondary m-2" onclick="sendForm()">Напишите нам</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function sendForm() {
+        var firstName = document.getElementById("firstName").value;
+        var email = document.getElementById("email").value;
+        var message = document.getElementById("message").value;
+
+        $.ajax({
+            url: '/ContactsUs/Send',
+            method: 'get',
+            data: { 
+                firstName: firstName,
+                email: email,
+                message: message
+            },
+            success: function () {
+
+            }
+        });
+    }
+</script>

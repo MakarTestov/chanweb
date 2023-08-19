@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ComScience - лучшее приложение для химиков</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/comscience.css" asp-append-version="true" />
+
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content">
+            @await Component.InvokeAsync("Header")
+            @RenderBody()
+        </div>
+        @await Component.InvokeAsync("Footer")
+    </div>
+
+    <script src="~/js/comscience.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

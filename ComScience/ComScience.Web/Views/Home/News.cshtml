@@ -1,0 +1,6 @@
+﻿@using ComScience.Web.Data
+@model StorageData
+<main class="news">
+    @await Component.InvokeAsync("Banner", new { bannerData = Model.BannerData })
+    @await Component.InvokeAsync("Articles", new { articles = Model.Articles })
+</main>
